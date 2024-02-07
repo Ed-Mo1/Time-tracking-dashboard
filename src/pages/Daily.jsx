@@ -1,29 +1,5 @@
-import TrackCard from "../components/TrackCard";
-import data from '../../data.json'
+import useData from "../hooks/useData";
 export default function Daily() {
-  return (
-    <>
-      {data.map(
-        (
-          {
-            title,
-            timeframes: {
-              daily: { current, previous },
-            },
-          },
-          i
-        ) => {
-          return (
-            <TrackCard
-              type="Day"
-              key={i}
-              title={title}
-              current={current}
-              previous={previous}
-            />
-          );
-        }
-      )}
-    </>
-  );
+  const data = useData("daily");
+  return data;
 }

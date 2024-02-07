@@ -1,29 +1,5 @@
-import TrackCard from "../components/TrackCard";
-import data from "../../data.json";
+import useData from "../hooks/useData";
 export default function Weekly() {
-  return (
-    <>
-      {data.map(
-        (
-          {
-            title,
-            timeframes: {
-              weekly: { current, previous },
-            },
-          },
-          i
-        ) => {
-          return (
-            <TrackCard
-              type="Week"
-              key={i}
-              title={title}
-              current={current}
-              previous={previous}
-            />
-          );
-        }
-      )}
-    </>
-  );
+  const data = useData("weekly");
+  return data;
 }
